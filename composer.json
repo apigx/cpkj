@@ -1,10 +1,10 @@
 {
   "name": "apigx/cpkj",
-  "description": "本插件由【开奖网】提供，网址https://apigx.cn/",
+  "description": "本插件由【开奖网】提供",
   "type": "library",
-  "minimum-stability": "stable",
   "license": "MIT",
   "homepage": "https://apigx.cn/",
+
   "authors": [
     {
       "name": "apigx",
