@@ -1,14 +1,17 @@
 {
   "name": "apigx/cpkj",
-  "description": "description",
+  "description": "the API plus",
   "minimum-stability": "stable",
-  "license": "proprietary",
+  "license": "Apache-2.0",
+  "homepage": "https://apigx.cn/",
   "authors": [
     {
-      "name": "vicotom168@gmail.com",
+      "name": "vicotom168",
       "email": "vicotom168@gmail.com"
     }
   ],
   "require": {
+    "php": ">=7.2.5 || >=8.0",
+    "guzzlehttp/guzzle": "7.4.1"
   }
 }
