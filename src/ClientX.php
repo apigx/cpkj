@@ -40,8 +40,15 @@ class ClientX{
         }
     }
 
+    /**
+     * 获取数据
+     * @param $uri
+     * @param $fn
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getData($uri,$fn){
-
+        //处理数据
         if(gettype($uri)=="string"){
             $this->uri=$uri;
         }else if(gettype($uri)=="array"){
@@ -49,7 +56,7 @@ class ClientX{
         }else{
             $this->uri="";
         }
-
+        //获取数据
         if(gettype($uri)=="string"){
             try{
                 $response = $this->client->request("get",$uri);
