@@ -20,7 +20,8 @@
     "client",
     "HTTP client",
     "PSR-7",
-    "PSR-18"
+    "PSR-18",
+    "api"
   ],
   "require": {
     "php": "^7.2.5 || ^8.0",
@@ -30,9 +31,6 @@
   "autoload": {
     "psr-4": {
       "cpkj\\": "src/"
-    },
-    "files": [
-      "src/functions_include.php"
-    ]
+    }
   }
 }
