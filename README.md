@@ -16,4 +16,5 @@
 > * https://h5webwx.xyz
 > * https://bckjwapi.com
 > * https://bckjw-api.com
-
+> 
+> 注：出于数据安全考虑，分站之间用户数据不互通，请注册后记录好自己的 **_用户名密码_** 和 **_分站网址_** 。
