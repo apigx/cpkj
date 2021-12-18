@@ -1,0 +1,14 @@
+{
+  "name": "apigx/cpkj",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "master",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}
