@@ -1,17 +1,38 @@
 {
   "name": "apigx/cpkj",
   "description": "the API plus",
+  "type": "library",
   "minimum-stability": "stable",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://apigx.cn/",
   "authors": [
     {
-      "name": "vicotom168",
+      "name": "apigx",
       "email": "vicotom168@gmail.com"
     }
   ],
+  "keywords": [
+    "framework",
+    "http",
+    "rest",
+    "web service",
+    "curl",
+    "client",
+    "HTTP client",
+    "PSR-7",
+    "PSR-18"
+  ],
   "require": {
-    "php": ">=7.2.5 || >=8.0",
+    "php": "^7.2.5 || ^8.0",
+    "ext-json": "*",
     "guzzlehttp/guzzle": "7.4.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "cpkj\\": "src/"
+    },
+    "files": [
+      "src/functions_include.php"
+    ]
   }
 }
