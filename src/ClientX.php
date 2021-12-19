@@ -63,7 +63,7 @@ class ClientX{
             'fulfilled'   => function($response,$index){
                 //是失败后
             },
-            'rejected' => function($response,$index){
+            'rejected' => function($reason,$index){
                 //成功后
             },
         ];
