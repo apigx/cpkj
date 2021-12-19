@@ -59,7 +59,7 @@ class ClientX{
         };
         //初始化默认值
         $this->config=[
-            'concurrency' => 5,
+            'concurrency' => 5,//配置并发异步请求数，每次同时创建多少个请求，默认为5，建议30以内。过大的话，服务器内存可能不够用。
             'fulfilled'   => function($response,$index){
                 //访问成功操作
             },
