@@ -59,15 +59,15 @@ class ClientX{
         };
         //初始化默认值
         $this->config=[
-            'concurrency' => 5,
+            'concurrency' => 5,//配置并发异步请求数，每次同时创建多少个请求，默认为5，建议30以内。过大的话，服务器内存可能不够用。
             'fulfilled'   => function($response,$index){
-                //是失败后
+                //访问成功操作
             },
             'rejected' => function($reason,$index){
-                //成功后
+                //访问失败操作
             },
         ];
-        if($config)$this->config=array_merge($this->config,$config);
+        if($config)$this->config=array_merge((array)$this->config,(array)$config);
         // 开始发送请求
         $pool = new Pool($client,$requests(),$this->config);
         $promise = $pool->promise();
