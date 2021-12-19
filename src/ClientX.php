@@ -1,84 +1,76 @@
 <?php
 namespace Cpkj;
-use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Pool;
 class ClientX{
     /**
      * 默认值
      * @var array|int[]
      */
-    protected $config=[
-        'timeout'  => 300,
-    ];
+    protected $config=[];
     /**
      * 访问器
      * @var client
      */
     public $client;
-    protected $uri="";
+    protected $uris=[];
+    private $client_config=[];
+
     /**
      * 初始化
      * ClientX constructor.
-     * @param array $config
+     * @param array $client_config
      */
-    public function __construct(array $config = []){
-        $this->config=array_merge($this->config,$config);
-        $this->client=new Client();
+    public function __construct(array $client_config = ['timeout' => 300]){
+        $this->client_config=array_merge($this->client_config,$client_config);
     }
 
     /**
      * 设置获取
-     * @param $uri
+     * @param $uris
      */
-    public function setData($uri){
-        if(gettype($uri)=="string"){
-            $this->uri=$uri;
-        }else if(gettype($uri)=="array"){
-            $this->uri=array_merge($this->uri,$uri);
+    public function setData($uris){
+        if(gettype($uris)=="string"){
+            $this->uris[]=$uris;
+        }else if(gettype($uris)=="array"){
+            $this->uris=array_merge($this->uris,$uris);
+        }else{
+            $this->uris=[];
         }
     }
 
     /**
      * 获取数据
-     * @param $uri
-     * @param $fn
-     * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getData($uri,callable $fulfilled_func,callable $rejected_func){
+    public function getData($uris,$config=null){
         //处理数据
-        if(gettype($uri)=="string"){
-            $this->uri=$uri;
-        }else if(gettype($uri)=="array"){
-            $this->uri=array_merge($this->uri,$uri);
-        }else{
-            $this->uri="";
+        if(gettype($uris)=="string"){
+            $this->uris[]=$uris;
+        }else if(gettype($uris)=="array"){
+            $this->uris=array_merge($this->uris,$uris);
         }
-        //获取数据
-        if(gettype($uri)=="string"){
-            try{
-                $response = $this->client->request("get",$uri);
-                $statusCode=$response->getStatusCode();
-                if($statusCode==200){
-                    try{
-                        $arr=json_decode($response->getBody()->getContents(),true);
-                        if($arr["rows"]==0){
-                            return ["result"=>true,"data"=>$arr["data"],"rows"=>$arr["rows"],"code"=>$arr["code"],"msg"=>"获取成功"];
-                        }else{
-                            return ["result"=>false,"msg"=>$arr["info"]];
-                        }
-                    }catch(Exception $exception){
-                        return ["result"=>false,"msg"=>$exception->getMessage()];
-                    }
-                }else{
-                    return ["result"=>false,"msg"=>"返回代码不正确"];
-                }
-            }catch (RequestException $e){
-                return ["result"=>false,"msg"=>$e->getMessage()];
+        $client=new Client($this->client_config);
+        $requests = function () use ($client) {
+            foreach($this->uris as $uri){
+                yield function() use ($client,$uri){
+                    return $client->getAsync($uri);
+                };
             }
-        }else if(gettype($uri)=="array"){
-            $this->uri=array_merge($this->uri,$uri);
-        }
+        };
+        //初始化默认值
+        $this->config=[
+            'concurrency' => 5,
+            'fulfilled'   => function($response,$index){
+                //是失败后
+            },
+            'rejected' => function($reason,$index){
+                //成功后
+            },
+        ];
+        if($config)$this->config=array_merge($this->config,$config);
+        // 开始发送请求
+        $pool = new Pool($client,$requests(),$this->config);
+        $promise = $pool->promise();
+        $promise->wait();
     }
 }
