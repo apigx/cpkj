@@ -3,7 +3,6 @@ namespace Cpkj;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-
 class ClientX{
     /**
      * 默认值
@@ -47,7 +46,7 @@ class ClientX{
      * @return array
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getData($uri,$fn){
+    public function getData($uri,callable $fulfilled_func,callable $rejected_func){
         //处理数据
         if(gettype($uri)=="string"){
             $this->uri=$uri;
@@ -78,7 +77,6 @@ class ClientX{
             }catch (RequestException $e){
                 return ["result"=>false,"msg"=>$e->getMessage()];
             }
-
         }else if(gettype($uri)=="array"){
             $this->uri=array_merge($this->uri,$uri);
         }
