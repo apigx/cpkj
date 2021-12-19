@@ -2,8 +2,8 @@
 require_once __DIR__.'/../vendor/autoload.php';
 $test=new \Cpkj\ClientX();
 //单条API接口访问
-$api="https://apigx.cn/token/ddd/code/twbg28/rows/1.json";
-//多条API接口访问
+$api="接口1";
+//多条API接口并发访问
 $api=[
     "https://apigx.cn/token/dsadsad/code/twbg28/rows/1.json",
     "https://apigx.cn/token/dsadsaq/code/twbg28/rows/1.json",
@@ -27,6 +27,6 @@ $test->getData($api,[
         //访问失败操作
         echo $index;//访问失败API接口数组的位置从0开始。
         print_r($reason);//响应的部分数据
-        //开发建议：这里建议直接提示即可。因为不同的开发框架提示都会有差别。上述2个数据不一定存在。
+        //开发建议：这里建议直接提示即可。因为不同的开发框架提示都会有差异。上述2个数据不一定存在。
     },
 ]);
