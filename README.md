@@ -1,6 +1,6 @@
 开奖网（PHP插件）
 ===============
-![logo](http://updata.yxfwkj.com/44/9bfaea81ad9c6102a0e25c746039ee.png)
+![logo](logo.png)
 > 本插件由开奖网提供技术支持。
 >
 > > 开奖网分站网址如下：
