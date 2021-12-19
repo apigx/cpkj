@@ -67,7 +67,7 @@ class ClientX{
                 //成功后
             },
         ];
-        if($config)$this->config=array_merge($this->config,$config);
+        if($config)$this->config=array_merge((array)$this->config,(array)$config);
         // 开始发送请求
         $pool = new Pool($client,$requests(),$this->config);
         $promise = $pool->promise();
