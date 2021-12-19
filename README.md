@@ -1,9 +1,9 @@
+开奖网（PHP插件）
+===============
 ![logo](http://updata.yxfwkj.com/44/9bfaea81ad9c6102a0e25c746039ee.png)
-#开奖网（PHP插件）
-
-> ###本插件由开奖网提供技术支持。
+> 本插件由开奖网提供技术支持。
 > 
-> > ####开奖网分站网址如下：
+> > 开奖网分站网址如下：
 > > * https://apigx.cn
 > > * https://bcapi.cn
 > > * https://zhcwapi.com
@@ -17,7 +17,8 @@
 > > * https://h5webwx.xyz
 > > * https://bckjwapi.com
 > > * https://bckjw-api.com
-> #####注：出于数据安全考虑，分站之间用户数据不互通，请注册后记录好自己的 **_用户名密码_** 和 **_分站网址_** 。
+> 
+> 注：出于数据安全考虑，分站之间用户数据不互通，请注册后记录好自己的 **_用户名密码_** 和 **_分站网址_** 。
 
 ---
 ## 环境需求
@@ -27,7 +28,9 @@
 ## 安装说明
 
 > 使用 composer
-> > composer require apigx/cpkj
+> ```bash
+> composer require apigx/cpkj
+> ```
 
 > 下载地址
 > > https://github.com/apigx/cpkj
