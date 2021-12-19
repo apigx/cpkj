@@ -1,6 +1,6 @@
 开奖网（PHP插件）
 ===============
-![logo](logo.png)
+![logo](https://github.com/apigx/cpkj/blob/main/.github/logo.png?raw=true)
 > 本插件由开奖网提供技术支持。
 > 
 > > 开奖网分站网址如下：
