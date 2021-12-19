@@ -28,6 +28,14 @@
     "ext-json": "*",
     "guzzlehttp/guzzle": "7.4.1"
   },
+  "require-dev": {
+    "ext-curl": "*"
+  },
+  "suggest": {
+    "ext-curl": "Required for CURL handler support",
+    "ext-intl": "Required for Internationalized Domain Name (IDN) support",
+    "psr/log": "Required for using the Log middleware"
+  },
   "autoload": {
     "psr-4": {
       "Cpkj\\": "src/"
