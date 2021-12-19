@@ -61,10 +61,10 @@ class ClientX{
         $this->config=[
             'concurrency' => 5,
             'fulfilled'   => function($response,$index){
-                //是失败后
+                //访问成功操作
             },
             'rejected' => function($reason,$index){
-                //成功后
+                //访问失败操作
             },
         ];
         if($config)$this->config=array_merge((array)$this->config,(array)$config);
