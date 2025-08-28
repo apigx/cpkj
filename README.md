@@ -3,21 +3,6 @@
 ![logo](https://github.com/apigx/cpkj/blob/v1.0/.github/logo.png?raw=true)
 > 本插件由开奖网提供技术支持。
 >
-> > 开奖网分站网址如下：
-> > * https://apigx.cn
-> > * https://bcapi.cn
-> > * https://zhcwapi.com
-> > * https://kjw-api.com
-> > * https://500api.cn
-> > * https://1688-api.com
-> > * https://520-api.com
-> > * https://1688lottery.com
-> > * https://cz-api.cn
-> > * https://wxh5cdn.com
-> > * https://h5webwx.xyz
-> > * https://bckjwapi.com
-> > * https://bckjw-api.com
->
 > 注：出于数据安全考虑，分站之间用户数据不互通，请注册后记录好自己的 **_用户名密码_** 和 **_分站网址_** 。
 
 ---
