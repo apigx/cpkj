@@ -10,12 +10,11 @@ class ClientX{
     protected $config=[];
     /**
      * 访问器
-     * @var client
+     * @var $client
      */
     public $client;
     protected $uris=[];
     private $client_config=[];
-
     /**
      * 初始化
      * ClientX constructor.
