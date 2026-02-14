@@ -1,3 +1,5 @@
 /vendor
 .lock
 /.idea
+/.idea/php.xml
+/.idea/cpkj.iml
